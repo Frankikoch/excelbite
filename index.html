@@ -439,22 +439,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         selectedPlan = btn.dataset.plan;
         document.getElementById('order-plan-name').textContent = planNames[selectedPlan];
         document.getElementById('order-total-price').textContent = '€' + planPrices[selectedPlan];
-        DL.selectPlan(selectedPlan);
         document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
       });
     });
 
-    // Checkout form submit
+    // Checkout form submit — redirect to Stripe Payment Links
+    const stripeLinks = {
+      basico: 'https://buy.stripe.com/{{STRIPE_LINK_BASICO}}',
+      pro: 'https://buy.stripe.com/{{STRIPE_LINK_PRO}}',
+      premium: 'https://buy.stripe.com/{{STRIPE_LINK_PREMIUM}}'
+    };
+
     document.getElementById('checkout-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      if (!selectedPlan) { alert('Selecciona un plan primero.'); return; }
-      DL.pushFormSubmit('checkout');
-      DL.pushPurchase({ id: 'plan-' + selectedPlan, name: planNames[selectedPlan], price: planPrices[selectedPlan], currency: 'EUR' });
-      alert('¡Compra simulada! En un sitio real esto redirigiría a pasarela de pago.');
-      selectedPlan = null;
-      document.getElementById('order-plan-name').textContent = '—';
-      document.getElementById('order-total-price').textContent = '€0';
-      this.reset();
+      if (!selectedPlan) { alert('Seleccioná un plan primero.'); return; }
+      window.location.href = stripeLinks[selectedPlan];
     });
 
     // Contact form submit
