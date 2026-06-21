@@ -460,11 +460,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // Contact form submit
     document.getElementById('contact-form').addEventListener('submit', function(e) {
       e.preventDefault();
-      DL.pushFormSubmit('contacto');
-      DL.pushLead('contacto');
-      document.getElementById('contact-success').style.display = 'block';
-      this.reset();
-      setTimeout(() => { document.getElementById('contact-success').style.display = 'none'; }, 5000);
+      window.location.href = './gracias.html?from=contacto';
     });
 
     // Course view_item events
