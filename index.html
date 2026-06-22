@@ -6,8 +6,14 @@
   <title>excel_bite — Domina Excel en pequeños bocados</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
   <link rel="stylesheet" href="./css/style.css">
+
+  <!-- dataLayer + gtag (must be first) -->
+  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}</script>
+
+  <!-- Consent Mode v2 defaults (before GTM so tags see the state) -->
+  <script src="./js/consent.js" defer></script>
 
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -16,8 +22,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-WW42RP2T');</script>
   <!-- End Google Tag Manager -->
-
-  <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);}</script>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -273,7 +277,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p class="section-subtitle mx-auto">Un vistazo rápido a lo que aprenderás.</p>
       <div class="video-wrapper" style="max-width:720px;margin:2rem auto;position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:var(--radius-md);box-shadow:0 8px 32px rgba(0,0,0,.12);">
         <iframe src="https://www.youtube.com/embed/kdMiEHV19yI?si=aBcDeFgHiJkLmNoP" 
-title="Excel Tutorial" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; 
+title="Excel Tutorial" loading="lazy" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" allow="accelerometer; 
 autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
@@ -428,13 +432,12 @@ autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allow
       <div style="display:flex;gap:24px;font-size:.875rem">
         <a href="#">Aviso legal</a>
         <a href="#">Privacidad</a>
-        <a href="#">Cookies</a>
+        <a href="#" onclick="event.preventDefault();window.ConsentManager&&document.getElementById('cookie-banner')===null&&location.reload()">Cookies</a>
       </div>
       <div style="font-size:.8125rem;color:var(--c-gray-500)">&copy; 2026 excel_bite &mdash; Sitio de pruebas para analítica digital</div>
     </div>
   </footer>
 
-  <script src="./js/consent.js"></script>
   <script src="./js/main.js"></script>
   <script>
     // FAQ toggle

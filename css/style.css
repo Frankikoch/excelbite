@@ -225,6 +225,9 @@ ul { list-style: none; }
 .cookie-banner-content p { font-size: .875rem; margin-bottom: 16px; color: var(--c-gray-300); }
 .cookie-banner-content a { color: var(--c-primary-light); }
 .cookie-banner-btns { display: flex; gap: 12px; justify-content: flex-end; }
+.cookie-toggle-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; font-size: .8125rem; color: var(--c-gray-300); }
+.cookie-toggle-row label { display: flex; align-items: center; gap: 6px; font-weight: 600; color: var(--c-white); white-space: nowrap; cursor: pointer; }
+.cookie-toggle-row input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--c-primary); }
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 1024px) {
